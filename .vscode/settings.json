@@ -1,0 +1,30 @@
+{ // A path to a file, or an object containing the configuration options for js-beautify. If the .jsbeautifyrc file exists in project root, it overrides this configuration.
+    "beautify.config": null,
+
+    // List of paths to ignore when using VS Code format command, including format on save. Uses glob pattern matching.
+    "beautify.ignore": [],
+
+    // Link file types to the beautifier type
+    "beautify.language": {
+        "js": {
+            "type": [
+                "javascript",
+                "json",
+                "jsonc"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautifyrc"
+            ]
+        },
+        "css": [
+            "css",
+            "less",
+            "scss"
+        ],
+        "html": [
+            "htm",
+            "html",
+        ]
+    }
+}
