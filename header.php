@@ -17,17 +17,23 @@
         <header id="masthead" class="site-header" role="banner">
 
             <div class="site-branding">
+                    <?php if (display_header_text() == true): ; ?>
                 <p>
                     <a href="<?php echo esc_url( home_url('/')); ?>" rel="home">
                         <h1><?php bloginfo( 'name' ); ?></h1>
                     </a>
+                    
                 </p>
                 <p class="site-description">
                     <?php bloginfo( 'description' ); ?>
                 </p>
+                <?php endif; ?>
             </div>
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
+            <!-- <?php if ( function_exists( 'the_custom_logo')) {
+                        the_custom_logo();
+                    } ?> -->
                 <?php
                     $args = array(
                         'theme_location' => 'main-menu'

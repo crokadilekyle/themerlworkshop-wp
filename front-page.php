@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area extended">
 
     <main id="main" class="site-main" role="main">
 
@@ -18,7 +18,7 @@
 
 </div>
 
-<?php get_sidebar(); ?>
+<?php get_sidebar( 'front-page' ); ?>
 
 
 <?php get_footer(); ?>
