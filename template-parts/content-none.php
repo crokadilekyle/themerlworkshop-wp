@@ -1,15 +1,17 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                <header class="entry-header">
+    <header class="entry-header">
 
-                    <h1><?php esc_html_e('404', 'themerlworkshop'); ?></1h1>
+        <h1><?php esc_html_e('404 - Page Not Found', 'themerlworkshop'); ?></1h1>
 
-                </header>
+    </header>
 
-                <div class="entry-content">
+    <div class="entry-content">
 
-                    <p><?php esc_html_e('Sorry!  No content found', 'themerlworkshop'); ?></p>
+        <p><?php esc_html_e('Sorry!  No content found', 'themerlworkshop'); ?></p>
 
-                </div>
+        <p><?php echo get_search_form(); ?></p>
 
-            </article>
+    </div>
+
+</article>

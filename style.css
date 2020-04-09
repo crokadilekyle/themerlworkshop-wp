@@ -14,6 +14,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 :root {
     --red: #b53022;
     --tan: #e1dec8;
+    --bg: #f1efe1;
+    --letter-spacing: .08rem;
 }
 
 * {
@@ -24,7 +26,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 body {
-    background: var(--tan);
+    background: var(--bg);
     font-family: "Open Sans", sans-serif;
     min-height: 100vh;
 }
@@ -32,6 +34,25 @@ body {
 a {
     color: var(--tan);
     text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: capitalize;
+}
+
+main h1 {
+    padding-left: 2rem;
+    margin-left: 2rem;
+}
+
+#content {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .site-header {
@@ -48,15 +69,40 @@ a {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    height: 50px;
 }
 
 #menu-navigation.menu {
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: flex-end;
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: var(--letter-spacing);
+}
+
+#menu-navigation.menu li {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+#menu-navigation.menu li:first-child {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+#menu-navigation.menu li a {
+    transition: color .2s ease-in;
+}
+
+#menu-navigation.menu li a:hover {
+    color: #aaa791;
+    transition: color .2s ease-in;
 }
 
 #main {
@@ -81,10 +127,6 @@ a {
     flex: 1;
 }
 
-footer.site-footer {
-    background: var(--red);
-    text-align: center;
-}
 
 #primary {
     flex-grow: 2;
@@ -104,7 +146,63 @@ footer.site-footer {
 }
 
 footer.site-footer {
+    background: var(--red);
     color: var(--tan);
+    text-align: center;
+    padding: 25px;
+}
+
+article.project,
+article.project h2,
+aside.widget-area,
+section.widget {
+    padding: 2rem;
+}
+
+section.widget h2 {
+    padding-bottom: 2rem;
+}
+
+section.widget ul {
+    list-style: none;
+}
+
+.site-main article {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.site-main article header h1 {
+    letter-spacing: var(--letter-spacing);
+}
+
+.site-main article header img {
+    display: block;
+    margin: 0 auto;
+}
+
+.site-main article .entry-content,
+.site-main article footer {
+    padding: 2rem;
+}
+
+.entry-content p {
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    #content.site-content {
+        flex-direction: column;
+    }
+
+    aside.widget-area {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        justify-content: center;
+    }
 }
 
 /* body {
