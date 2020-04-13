@@ -1,0 +1,1 @@
+<p><?php _e("Custom Footer Template has loaded!", 'themerlworkshop'); ?></p>

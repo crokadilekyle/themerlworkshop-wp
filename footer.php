@@ -6,6 +6,8 @@
 
     <footer id="colophon" class="site-footer" role="contentinfo">
 
+        <!-- <?php do_action( 'themerlworkshop_before_footer' ); ?> -->
+
         <div class="widget-area" role="complementary">
             <?php 
 
@@ -15,7 +17,12 @@
             }
             ?>
         </div>
-        <p>&copy; <?php echo date("Y");?> The Merl Workshop </p>
+
+        <?php 
+            $footer_message = '&copy;' . date( 'Y') . ' ' . get_bloginfo( 'name' );
+        ?>
+
+        <p><?php echo apply_filters( 'themerlworkshop_footer_message', $footer_message );?></p>
 
     </footer>
 

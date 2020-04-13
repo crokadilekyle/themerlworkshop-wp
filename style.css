@@ -185,7 +185,7 @@ section.widget ul {
 
 .site-main article .entry-content,
 .site-main article footer {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 .entry-content p {

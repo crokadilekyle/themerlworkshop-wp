@@ -40,7 +40,12 @@
                     );
                     wp_nav_menu($args); 
                 ?>
+                
+                <!-- <li><?php wp_loginout( get_permalink() ); ?></li> -->
+            
             </nav>
         </header>
 
         <div id="content" class="site-content">
+
+            
