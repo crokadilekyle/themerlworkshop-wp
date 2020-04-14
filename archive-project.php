@@ -6,17 +6,21 @@
 
         <h1><?php post_type_archive_title(); ?></h1>
 
-        <?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
+        <section class="recent-posts-grid">
 
-            <?php get_template_part('template-parts/content', 'project'); ?>
+            <?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
 
-        <?php endwhile; else : ?>
+                <?php get_template_part('template-parts/content', 'project'); ?>
 
-            <?php get_template_part('template-parts/content', 'none'); ?>
+            <?php endwhile; else : ?>
 
-        <?php endif; ?>
+                <?php get_template_part('template-parts/content', 'none'); ?>
 
-        <?php echo paginate_links(); ?>
+            <?php endif; ?>
+
+            <?php echo paginate_links(); ?>
+
+        </section>
 
     </main>
 

@@ -2,13 +2,36 @@
 
 <header class="entry-header">
 
-    <?php the_title( '<h1>', '</h1>'); ?>
+    <?php 
+        if( is_front_page() ){
+
+            get_template_part('template-parts/content', 'hero');
+
+        } else {
+
+            the_title('<h1>', '<h1>');
+
+        }
+    ?>
+
 
 </header>
 
 <div class="entry-content">
 
-    <?php the_content(); ?>
+    <?php 
+
+        if( is_front_page() ) {
+
+            get_template_part('template-parts/content', 'latest');
+            
+        } else {
+
+            the_content(); 
+
+        }
+    
+    ?>
 
 </div>
 

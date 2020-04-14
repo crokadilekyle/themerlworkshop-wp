@@ -19,8 +19,8 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'custom-background' );
 add_theme_support( 'custom-header' );
 $logo_defaults = array(
-    'height'    => 100,
-    'width'     => 400,
+    'height'    => 250,
+    'width'     => 250,
     'flex-height'   => true,
     'flex-width'    => true,
     'header-text'   => array( 'site-title', 'site-description')
@@ -58,6 +58,7 @@ register_nav_menus(
         'footer-menu' => esc_html__('Footer Menu', 'themerlworkshop' )
     ));
 
+
 // Add login/logout to nav
 add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
 function add_login_logout_link($items, $args) {
@@ -66,9 +67,10 @@ function add_login_logout_link($items, $args) {
         wp_loginout( get_permalink() );
         $loginoutlink = ob_get_contents();
         ob_end_clean();
-        $items .= '<li>'. $loginoutlink .'</li>';
+        $items .= '<li>'. ucwords($loginoutlink) .'</li>';
     return $items;
 }
+
 
 // Setup Widget Areas (sidebars)
 function themerlworkshop_widgets_init() {

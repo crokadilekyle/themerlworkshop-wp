@@ -2,15 +2,32 @@
 
 <header class="entry-header">
 
-    <?php the_title( '<h2><a href="'. get_the_permalink() .'">', '</a></h2>'); ?>
+    <figure>
 
-    <?php the_post_thumbnail( 'full' );?>
+        <a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID));?>" alt="post thumbnail" /></a>
+        <?php the_title( '<figcaption><a href="'. get_the_permalink() .'">', '</a></figcaption>'); ?>
+
+    </figure>
 
 </header>
 
 <div class="entry-content">
 
     <?php the_excerpt(); ?>
+
+    <p>
+        <?php 
+            if ( get_the_terms( $post->ID, 'woodworking')) {
+
+                the_terms( $post->ID, 'woodworking');
+
+            } elseif ( get_the_terms( $post->ID, 'home_improvement' )) {
+
+                the_terms( $post->ID, 'home_improvement'); 
+
+            }
+        ?>
+    </p>
 
 </div>
 
