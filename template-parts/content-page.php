@@ -2,18 +2,13 @@
 
 <header class="entry-header">
 
-    <?php 
-        if( is_front_page() ){
+    <?php if ( !is_front_page() ) {
 
-            get_template_part('template-parts/content', 'hero');
+        the_title('<h1>', '<h1>');
 
-        } else {
-
-            the_title('<h1>', '<h1>');
-
-        }
-    ?>
-
+        the_post_thumbnail( 'large', array('class' => 'featured-image') );
+        
+     } ?>
 
 </header>
 

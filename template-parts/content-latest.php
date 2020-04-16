@@ -1,14 +1,13 @@
-<section id="recent-projects">
-    <h2 style="text-align: center;">Recent Projects</h2>
+<section id="recent-projects" class="front-page-section">
+    <h2><?php esc_html_e( 'Latest from the Merl Workshop' ); ?></h2>
 
     <section class="recent-posts-grid">
 
     <?php
-
     $recent_projects = wp_get_recent_posts( array('post_type'=>'project'));
     $recent_posts = wp_get_recent_posts();
-
-    $all_posts = array_merge($recent_projects, $recent_posts);
+    $merged_posts = array_merge($recent_projects, $recent_posts);
+    $all_posts = wp_list_sort($merged_posts, 'post_date', 'desc');
     
         foreach ($all_posts as $post) { ?>
 

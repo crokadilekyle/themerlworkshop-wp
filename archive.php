@@ -5,18 +5,22 @@
     <main id="main" class="site-main" role="main">
 
         <h1><?php the_archive_title(); ?></h1>
+        
+        <section class="recent-posts-grid">
 
-        <?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
+            <?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
 
-            <?php get_template_part('template-parts/content-posts', 'page'); ?>
+                <?php get_template_part('template-parts/content-posts', 'page'); ?>
 
-        <?php endwhile; else : ?>
+            <?php endwhile; else : ?>
 
-            <?php get_template_part('template-parts/content', 'none'); ?>
+                <?php get_template_part('template-parts/content', 'none'); ?>
 
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php echo paginate_links(); ?>
+            <?php echo paginate_links(); ?>
+
+        </section>
 
     </main>
 

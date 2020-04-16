@@ -30,6 +30,8 @@
                 <?php endif; ?>
             </div>
 
+            <?php get_template_part('template-parts/content', 'hero'); ?>
+
             <nav id="site-navigation" class="main-navigation" role="navigation">
             <!-- <?php if ( function_exists( 'the_custom_logo')) {
                         the_custom_logo();

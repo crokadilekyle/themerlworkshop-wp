@@ -30,6 +30,8 @@ add_theme_support( 'custom-logo', $logo_defaults );
 add_theme_support( 'custom-selective-refresh-widgets' );
 add_theme_support( 'starter-content' );
 
+add_post_type_support( 'page', 'excerpt' );
+
 // Load in our CSS
 function themerlworkshop_enqueue_styles() {
 

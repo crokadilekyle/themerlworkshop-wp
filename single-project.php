@@ -20,12 +20,19 @@
 
                 <?php the_content(); ?>
 
+                <?php wp_link_pages(); ?>
+
             </div>
 
             <footer>
 
                 <p>
-                    Categories: <?php the_terms( $post->ID, 'woodworking'); ?>
+                    Categories: <?php if (get_the_terms($post->ID, 'woodworking')) {
+                                    the_terms( $post->ID, 'woodworking'); 
+                                } elseif (get_the_terms($post->ID, 'home_improvement')) {
+                                    the_terms( $post->ID, 'home_improvement');
+                                }
+                                ?>
                 </p>
 
                 <p>
@@ -38,7 +45,16 @@
 
         </article>
 
-        <?php endwhile;  endif; ?>
+        <?php endwhile;  ?>
+
+            <nav>
+                <ul class="pager">
+                    <li><?php next_post_link( '%link &raquo;', 'Previous' ); ?><a></li>
+                    <li><?php previous_post_link( '%link &raquo;', 'Next' ); ?></li>
+                </ul>
+            </nav>
+        
+        <?php endif; ?>
 
     </main>
 

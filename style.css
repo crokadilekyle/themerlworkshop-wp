@@ -11,6 +11,10 @@ This theme, like Wordpress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+/* --------------------------------------------------------------
+   # Setup and Resets
+   --------------------------------------------------------------*/
+
 :root {
     --red: #b53022;
     --tan: #e1dec8;
@@ -45,16 +49,25 @@ h6 {
     text-transform: capitalize;
 }
 
+ul {
+    padding-left: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    max-height: 50vh;
+}
+
 main h1,
 section#recent-projects h2 {
     text-align: center;
     margin-bottom: 1em;
 }
 
-/* #content {
-    max-width: 1100px;
-    margin: 0 auto;
-} */
+/* --------------------------------------------------------------
+   # Header
+   --------------------------------------------------------------*/
 
 .site-header {
     background: var(--red);
@@ -76,7 +89,7 @@ section#recent-projects h2 {
 #menu-navigation.menu {
     display: flex;
     list-style: none;
-    justify-content: flex-end;
+    justify-content: center;
     width: 80vw;
     margin: 0 auto;
     font-family: "PT Sans", sans-serif;
@@ -91,10 +104,10 @@ section#recent-projects h2 {
     margin-right: 2rem;
 }
 
-#menu-navigation.menu li:first-child {
+/* #menu-navigation.menu li:first-child {
     flex: 1;
     margin-left: 1rem;
-}
+} */
 
 #menu-navigation.menu li a {
     transition: color .2s ease-in;
@@ -104,6 +117,44 @@ section#recent-projects h2 {
     color: #aaa791;
     transition: color .2s ease-in;
 }
+
+/* --------------------------------------------------------------
+   # Utilities
+   --------------------------------------------------------------*/
+
+.btn-primary {
+    display: inline-block;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background: var(--red) !important;
+    color: var(--bg) !important;
+    transition: all .2s ease-in-out !important;
+    border-radius: 4px !important;
+    border: 1px solid var(--red) !important;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--bg) !important;
+    color: var(--red) !important;
+    border: 1px solid var(--tan) !important;
+    transition: all .2s ease-in-out !important
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-image {
+    max-width: 960px;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------
+   # Content
+   --------------------------------------------------------------*/
 
 #page {
     display: flex;
@@ -143,10 +194,9 @@ section#recent-projects h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 50vh;
     background: var(--tan);
     color: var(--red);
+    overflow: hidden;
 }
 
 #hero.hero h1 {
@@ -158,22 +208,51 @@ section#recent-projects h2 {
     margin: 0 auto;
 }
 
+section.front-page-section {
+    width: 100vw;
+    margin: 4rem auto;
+}
+
+section.full-width {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+section.full-width img {
+    width: 100%;
+    max-width: 960px;
+}
+
+section.front-page-section h2 {
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 section.recent-posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 2rem;
     margin: 0 auto;
-    max-width: 80vw;
+    /* max-width: 80vw; */
 }
 
 section.recent-posts-grid article {
     min-width: 250px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-section.recent-posts-grid article header,
-section.recent-posts-grid article figure img {
+section.recent-posts-grid article header figure {
     height: 150px;
     max-width: 100%;
+}
+
+section.recent-posts-grid article figure img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 section.recent-posts-grid article .entry-content {
@@ -193,8 +272,11 @@ section.recent-posts-grid article {
     background: var(--tan);
 }
 
+section#frontpage-about {
+    background: var(--tan);
+}
+
 .entry-header {
-    /* background: var(--red); */
     max-height: 50%;
 }
 
@@ -209,36 +291,6 @@ section.recent-posts-grid article {
     text-align: center;
     margin: 2em 0;
 }
-
-@media (max-width: 1280px) {
-    section.posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 664px) {
-    section#recent-projects {
-        width: 100vw;
-        margin: 0 auto;
-    }
-}
-
-
-
-
-footer.site-footer {
-    background: var(--red);
-    color: var(--tan);
-    text-align: center;
-    padding: 25px;
-}
-
-/* article.project,
-article.project h2,
-aside.widget-area,
-section.widget {
-    padding: 2rem 0;
-} */
 
 section.widget h2 {
     padding-bottom: 2rem;
@@ -269,8 +321,39 @@ section.widget ul {
     padding: 2rem 0;
 }
 
-.entry-content p {
+.entry-content p,
+.entry-content h2,
+.entry-content h3 {
     padding: 1rem 0;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.entry-content ul {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------
+   # Footer
+   --------------------------------------------------------------*/
+
+
+footer.site-footer {
+    background: var(--red);
+    color: var(--tan);
+    text-align: center;
+    padding: 25px;
+}
+
+/* --------------------------------------------------------------
+   # Media Queries
+   --------------------------------------------------------------*/
+
+@media (max-width: 1280px) {
+    section.posts-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -280,253 +363,28 @@ section.widget ul {
 
     aside.widget-area {
         display: flex;
-        flex-direction: row;
         margin: 0 auto;
         justify-content: center;
     }
 }
 
-/* body {
-    background: #d3d3d3;
-    font-family: "Open Sans", sans-serif;
+@media (max-width: 664px) {
+    section#recent-projects {
+        width: 100vw;
+        margin: 0 auto;
+    }
 }
 
-body.tag-50,
-body.category-9 {
-    background-color: #a7ff91;
+/* --------------------------------------------------------------
+   # Ninja Forms Styling
+   --------------------------------------------------------------*/
+
+.form-group {
+    background-color: var(--tan) !important;
+    padding: 50px;
+    max-width: 500px;
+    margin: 0 auto;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.site-title {
-    font-family: "Varela Round", sans-serif;
-}
-
-h1 {
-    font-size: 2rem;
-}
-
-h2 {
-    margin: 2rem 0 1rem;
-}
-
-h2.search-title {
-    text-transform: capitalize;
-}
-
-a {
-    color: #e1dec8;
-    text-decoration: none;
-}
-
-pre {
-    background: #222;
-    padding: 10px;
-    border: 1px #777 solid;
-    color: #ededed;
-    font-family: monospace;
-    font-size: 1rem;
-}
-
-video {
-    max-width: 100%;
-}
-
-ul {
-    padding-left: 0;
-    margin-left: 20px;
-    list-style-position: outside;
-}
-
-.site-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0 0 1rem 0;
-}
-
-#masthead,
-footer.site-footer {
-    margin: 2rem auto 1rem;
-    text-align: center;
-    width: 80%;
-}
-
-.main-navigation {
-    background-color: var(--red);
-    padding: 5px;
-    width: 100%;
-}
-
-.main-navigation li {
-    list-style-type: none;
-    display: inline-block;
-}
-
-.main-navigation li a {
-    padding: 5px;
-}
-
-.main-navigation li:hover>a {
-    color: #000;
-}
-
-.main-navigation li.current-menu-item>a,
-.main-navigation li.current-page-parent>a {
-    font-weight: bold;
-    color: #494329;
-}
-
-.main-navigation li ul {
-    display: none
-}
-
-.main-navigation li:hover ul {
-    display: block;
-    position: absolute;
-    margin-left: -10px;
-    z-index: 100;
-    background: #fff091;
-    padding: 5px 10px;
-}
-
-.main-navigation li:hover ul li {
-    display: block;
-    margin: .5rem 0;
-}
-
-#content {
-    background: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 1020px;
-    border-radius: 5px;
-    position: relative;
-    overflow: auto;
-    -ms-word-wrap: break-word;
-    word-wrap: break-word;
-}
-
-.single-portfolio #content,
-.page-template-template-splash #content,
-.page-id-1096 #content,
-.category-excerpt #content,
-.tag-wordpress #content {
-    width: 50%;
-    max-width: 720px;
-}
-
-#content article,
-#content article div,
-#content img {
-    max-width: 100%;
-}
-
-#content img {
-    height: auto;
-}
-
-#primary {
-    width: 70%;
-    float: left;
-}
-
-
-#primary.extended,
-#primary.excerpt,
-#primary.wordpress {
-    width: 100%;
-    float: none;
-}
-
-article.post {
-    margin-bottom: 4rem;
-}
-
-.author article.post {
-    margin-bottom: 2rem;
-}
-
-.prev-posts,
-.next-posts,
-.archive article.portfolio {
-    width: 45%;
-    float: left;
-}
-
-.next-posts {
-    text-align: right;
-    float: right;
-}
-
-.archive article.portfolio:nth-child(even) {
-    margin-right: 5%;
-}
-
-.form-submit input#submit,
-.button {
-    border: 1px #ccc solid;
-    border-radius: 3px;
-    background: #fff;
-    padding: 1rem 2rem;
-    margin: 1rem 0;
-    display: inline-block;
-}
-
-.form-submit input#submit:hover,
-.button:hover {
-    cursor: pointer;
-    border-color: #777;
-}
-
-
-#secondary {
-    width: 25%;
-    float: right;
-}
-
-.home #secondary {
-    width: 100%;
-    clear: both;
-}
-
-.home #secondary .widget {
-    width: 30%;
-    float: left;
-}
-
-#secondary h2 {
-    font-size: 1.2rem;
-}
-
-.byline {
-    color: #777;
-    font-size: .8rem;
-}
-
-.byline a {
-    color: #777;
-    text-decoration: underline;
-    display: inline-block;
-}
-
-.byline a:hover {
-    color: #564A71;
-}
-
-.author-bio {
-    border-bottom: 1px #ccc solid;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-}
-
-.author-bio img {
-    float: left;
-} */
 
 
 /*--------------------------------------------------------------

@@ -2,6 +2,7 @@
 
 <header class="entry-header">
 
+
     <figure>
 
         <a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID));?>" alt="post thumbnail" /></a>
