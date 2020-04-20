@@ -18,6 +18,15 @@
             ?>
         </div>
 
+        <?php
+            $args = array(
+                'theme_location'    => 'footer-menu',
+                'link_before'       => '<i class="fa fa-2x fa-',
+                'link_after'        => '"></i>'
+            );
+            wp_nav_menu($args); 
+        ?>
+
         <?php 
             $footer_message = '&copy;' . date( 'Y') . ' ' . get_bloginfo( 'name' );
         ?>

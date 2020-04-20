@@ -35,6 +35,7 @@ add_post_type_support( 'page', 'excerpt' );
 // Load in our CSS
 function themerlworkshop_enqueue_styles() {
 
+    wp_enqueue_style( 'font-awesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '', 'all' );
     wp_enqueue_style( 'pt-sans-css', get_stylesheet_directory_uri() . 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap', array(), '', 'all' );
     wp_enqueue_style( 'main-css', get_stylesheet_directory_uri() . '/style.css', array(), time(), 'all' );
 
@@ -64,13 +65,16 @@ register_nav_menus(
 // Add login/logout to nav
 add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
 function add_login_logout_link($items, $args) {
-        ob_start();
-        // wp_loginout('index.php');
-        wp_loginout( get_permalink() );
-        $loginoutlink = ob_get_contents();
-        ob_end_clean();
-        $items .= '<li>'. ucwords($loginoutlink) .'</li>';
-    return $items;
+    $menu_name = $args->menu->name;
+        if ($menu_name == 'navigation'){
+            ob_start();
+            // wp_loginout('index.php');
+            wp_loginout( get_permalink() );
+            $loginoutlink = ob_get_contents();
+            ob_end_clean();
+            $items .= '<li>'. ucwords($loginoutlink) .'</li>';
+        }
+        return $items;
 }
 
 

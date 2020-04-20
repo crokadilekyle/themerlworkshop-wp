@@ -11,7 +11,7 @@
     
         foreach ($all_posts as $post) { ?>
 
-        <article id="post-<?php the_ID($post['ID']); ?>" <?php post_class(); ?>>
+        <article id="post-<?php echo $post['ID']; ?>" class="thumbnail">
 
             <header class="entry-header">
 
@@ -33,7 +33,7 @@
 
             <div class="entry-content">
 
-                <?php echo get_the_excerpt($post['ID']); ?>
+                <p><?php echo get_the_excerpt($post['ID']); ?></p>
 
             </div>
 

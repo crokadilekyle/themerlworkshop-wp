@@ -56,7 +56,7 @@ ul {
 img {
     max-width: 100%;
     height: auto;
-    max-height: 50vh;
+    /* max-height: 50vh; */
 }
 
 main h1,
@@ -167,16 +167,14 @@ section#recent-projects h2 {
     display: flex;
     flex-direction: row;
     flex: 1;
+    /* margin: 0 2rem; */
     margin: 0;
 }
 
 #primary {
     flex-grow: 2;
     margin: 2rem;
-}
-
-#primary.content-area.extended {
-    margin: 0;
+    padding: 10px;
 }
 
 #secondary {
@@ -188,6 +186,11 @@ section#recent-projects h2 {
 #primary a,
 #secondary a {
     color: var(--red);
+}
+
+#primary.content-area.extended {
+    margin: 0;
+    padding: 0;
 }
 
 #hero.hero {
@@ -237,6 +240,10 @@ section.recent-posts-grid {
     /* max-width: 80vw; */
 }
 
+section#recent-projects {
+    max-width: 80vw;
+}
+
 section.recent-posts-grid article {
     min-width: 250px;
     max-width: 500px;
@@ -253,6 +260,10 @@ section.recent-posts-grid article header figure {
 section.recent-posts-grid article figure img {
     max-width: 100%;
     max-height: 100%;
+}
+
+section.recent-posts-grid article figure figcaption {
+    padding: 1rem;
 }
 
 section.recent-posts-grid article .entry-content {
@@ -292,7 +303,8 @@ section#frontpage-about {
     margin: 2em 0;
 }
 
-section.widget h2 {
+.widget-title {
+    text-align: center;
     padding-bottom: 2rem;
 }
 
@@ -316,16 +328,17 @@ section.widget ul {
     margin: 0 auto;
 }
 
-.site-main article .entry-content,
+.front-page-section .entry-content,
+.recent-posts-grid .entry-content,
 .site-main article footer {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 }
 
 .entry-content p,
 .entry-content h2,
 .entry-content h3 {
     padding: 1rem 0;
-    max-width: 960px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -334,10 +347,51 @@ section.widget ul {
     margin: 0 auto;
 }
 
+.wp-block-image {
+    margin: 4rem 0;
+}
+
+.wp-block-embed__wrapper {
+    /* margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 56.25%; */
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    max-width: 90%;
+    margin: 2rem auto;
+}
+
+.wp-block-embed__wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+.wp-block-ninja-forms-form {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 4rem;
+    background: var(--tan);
+}
+
 /* --------------------------------------------------------------
    # Footer
    --------------------------------------------------------------*/
+ul.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
 
+ul.menu li {
+    margin: 1em;
+}
 
 footer.site-footer {
     background: var(--red);
@@ -359,6 +413,7 @@ footer.site-footer {
 @media (max-width: 900px) {
     #content.site-content {
         flex-direction: column;
+        margin: 0 auto;
     }
 
     aside.widget-area {
@@ -384,6 +439,10 @@ footer.site-footer {
     padding: 50px;
     max-width: 500px;
     margin: 0 auto;
+}
+
+.ninja-forms-req-symbol {
+    color: var(--red) !important;
 }
 
 
@@ -513,16 +572,4 @@ blockquote.right {
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
     outline: 0;
-}
-
-
-
-
-/*--------------------------------------------------------------
-  # Media Queries
-  --------------------------------------------------------------*/
-@media only screen and (max-width: 720px) {
-    #content {
-        width: 90% !important;
-    }
 }
