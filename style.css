@@ -28,6 +28,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
     padding: 0;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 
 body {
     background: var(--bg);
@@ -71,6 +75,9 @@ section#recent-projects h2 {
 
 .site-header {
     background: var(--red);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 .site-branding {
@@ -83,19 +90,25 @@ section#recent-projects h2 {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+#main.menu-navigation-container {
     height: 50px;
 }
 
-#menu-navigation.menu {
+.menu {
     display: flex;
     list-style: none;
     justify-content: center;
-    width: 80vw;
     margin: 0 auto;
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
     font-size: 1.1rem;
     letter-spacing: var(--letter-spacing);
+}
+
+#menu-navigation.menu {
+    width: 80vw;
 }
 
 #menu-navigation.menu li {
@@ -109,13 +122,87 @@ section#recent-projects h2 {
     margin-left: 1rem;
 } */
 
-#menu-navigation.menu li a {
+#menu-navigation.menu li a,
+#menu-navigation-mobile.menu li a {
     transition: color .2s ease-in;
 }
 
-#menu-navigation.menu li a:hover {
+#menu-navigation.menu li a:hover,
+#menu-navigation-mobile.menu li a:hover {
     color: #aaa791;
     transition: color .2s ease-in;
+}
+
+#menu-navigation-mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--red);
+    height: auto;
+}
+
+#mobile .menu {
+    position: absolute;
+    width: 100%;
+    transition: all .4s ease-in-out;
+}
+
+.site-header input,
+.mobile-menu {
+    display: none;
+}
+
+#mobile .menu li {
+    text-align: center;
+}
+
+header.site-header input[type='checkbox'] {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 32px;
+    width: 50px;
+    opacity: 0;
+    z-index: 15;
+    cursor: pointer;
+}
+
+header.site-header .mobile-menu {
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    right: 5px;
+    height: 32px;
+    width: 50px;
+}
+
+.mobile-menu span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: var(--tan);
+    border-radius: 3px;
+
+    z-index: 1;
+
+    /* transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease; */
+}
+
+
+header.site-header input[type='checkbox']:checked~#mobile .menu {
+    position: absolute;
+    transform: translateX(100%);
+    transition: all .4s ease-in-out;
+}
+
+header.site-header input[type='checkbox']:checked~.mobile-menu span {
+    background: var(--red);
 }
 
 /* --------------------------------------------------------------
@@ -343,7 +430,7 @@ section.widget ul {
 }
 
 .entry-content ul {
-    max-width: 80%;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -378,6 +465,35 @@ section.widget ul {
     margin: 4rem auto;
     padding: 4rem;
     background: var(--tan);
+}
+
+ul.pager {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+}
+
+ul.pager :first-child {
+    flex-grow: 1;
+}
+
+ul.pager a {
+    display: inline-block;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background: var(--red) !important;
+    color: var(--bg) !important;
+    transition: all .2s ease-in-out !important;
+    border-radius: 4px !important;
+    border: 1px solid var(--red) !important;
+    cursor: pointer;
+}
+
+ul.pager a:hover {
+    background: var(--bg) !important;
+    color: var(--red) !important;
+    border: 1px solid var(--tan) !important;
+    transition: all .2s ease-in-out !important
 }
 
 /* --------------------------------------------------------------
@@ -420,6 +536,21 @@ footer.site-footer {
         display: flex;
         margin: 0 auto;
         justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header section#hero {
+        order: 1;
+    }
+
+    #site-navigation {
+        display: none;
+    }
+
+    .site-header input,
+    .mobile-menu {
+        display: block;
     }
 }
 

@@ -8,9 +8,14 @@
 
             <?php get_template_part('template-parts/content', get_post_format() ); ?>
 
-        <?php endwhile; else : ?>
+        <?php endwhile; ?>
 
-            <?php get_template_part('template-parts/content', 'none'); ?>
+            <nav>
+                <ul class="pager">
+                    <li><?php previous_post_link( '%link', 'Previous Post' ); ?></li>
+                    <li><?php next_post_link( '%link', 'Next Post' ); ?></li>
+                </ul>
+            </nav>
 
         <?php endif; ?>
 

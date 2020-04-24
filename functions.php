@@ -61,21 +61,23 @@ register_nav_menus(
         'footer-menu' => esc_html__('Footer Menu', 'themerlworkshop' )
     ));
 
-
-// Add login/logout to nav
-add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
-function add_login_logout_link($items, $args) {
-    $menu_name = $args->menu->name;
+    
+    
+    // Add login/logout to nav
+    add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
+    function add_login_logout_link($items, $args) {
+        $menu_name = $args->menu->name;
         if ($menu_name == 'navigation'){
             ob_start();
             // wp_loginout('index.php');
             wp_loginout( get_permalink() );
             $loginoutlink = ob_get_contents();
             ob_end_clean();
-            $items .= '<li>'. ucwords($loginoutlink) .'</li>';
+            $items .= __('<li>'. ucwords($loginoutlink) .'</li>');
         }
         return $items;
-}
+    }
+    
 
 
 // Setup Widget Areas (sidebars)

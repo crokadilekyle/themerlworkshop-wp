@@ -49,8 +49,8 @@
 
             <nav>
                 <ul class="pager">
-                    <li><?php next_post_link( '%link &raquo;', 'Previous' ); ?><a></li>
-                    <li><?php previous_post_link( '%link &raquo;', 'Next' ); ?></li>
+                    <li><?php previous_post_link( '%link', 'Previous Project' ); ?></li>
+                    <li><?php next_post_link( '%link', 'Next Project' ); ?></li>
                 </ul>
             </nav>
         
