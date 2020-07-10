@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php do_action( 'themerlworkshop_get_description' );?>
+    <!-- <meta name="description" content="<?php do_action( 'themerlworkshop_get_description' ); ?>"> -->
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php wp_head();?>
 </head>

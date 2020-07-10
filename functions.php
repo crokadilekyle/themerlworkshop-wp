@@ -339,4 +339,21 @@ function themerlworkshop_customize_register( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'themerlworkshop_customize_register' );
+
+
+// get meta description function
+function themerlworkshop_get_meta_description(){
+
+    locate_template( 'template-parts/head-meta.php', true );
+
+//     $pageCF = get_post_custom(get_the_ID());
+
+//         if (isset($pageCF['description'])) {
+//             return esc_html_e($pageCF['description'][0], 'themerlworkshop');
+//         } else {
+//             return esc_html_e(get_the_excerpt(get_the_ID()), 'themerlworkshop');
+//         }
+// }
+}
+add_action( 'themerlworkshop_get_description' , 'themerlworkshop_get_meta_description' );
 ?>

@@ -5,11 +5,13 @@
 
     <?php
     $recent_projects = wp_get_recent_posts( array('post_type'=>'project'));
-    $recent_posts = wp_get_recent_posts();
+    $recent_posts=wp_get_recent_posts();
     $merged_posts = array_merge($recent_projects, $recent_posts);
     $all_posts = wp_list_sort($merged_posts, 'post_date', 'desc');
     
-        foreach ($all_posts as $post) { ?>
+        foreach ($all_posts as $post) { 
+            
+            if (get_post_status($post['ID']) != "draft" ) {?>
 
         <article id="post-<?php echo $post['ID']; ?>" class="thumbnail">
 
@@ -33,13 +35,16 @@
 
             <div class="entry-content">
 
+                <!-- <?php echo get_post_status($post['ID']); ?> -->
+
                 <p><?php echo get_the_excerpt($post['ID']); ?></p>
 
             </div>
 
         </article>
 
-        <?php } ?>
+        <?php }
+            } ?>
 
     </section>
 
